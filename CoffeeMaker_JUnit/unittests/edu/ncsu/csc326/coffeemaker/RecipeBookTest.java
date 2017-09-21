@@ -67,13 +67,14 @@ public class RecipeBookTest extends TestCase {
 	}
 	//Get recipe R1 from the recipebook
 	//Expected return value: True
-	public void testGetRecipes() {
+	public void testGetRecipes1() {
 		Recipe [] recipeArray;
 		Recipe getRecipe;
 		recipeArray = rb.getRecipes();
 		getRecipe = recipeArray[0];
 		assertEquals(true,getRecipe.equals(r1));
 	}
+
 	//Attempt to add Recipe 1 again.
 	//Expected return value: False
 	public void testAddRecipe2() {
@@ -94,6 +95,18 @@ public class RecipeBookTest extends TestCase {
 		rb.addRecipe(r4);
 		assertEquals(false,rb.addRecipe(r5) );
 	}
+	//Attempt to add Recipes after deleting them
+	//Expected return value: false
+	public void testAddRecipe6() {
+		rb.addRecipe(r2);
+		rb.addRecipe(r3);
+		rb.addRecipe(r4);
+		rb.deleteRecipe(0);
+		rb.deleteRecipe(1);
+		rb.deleteRecipe(2);
+		rb.deleteRecipe(3);
+		assertEquals(true,rb.addRecipe(r1) );
+	}
 	//Attempt to delete Recipe 1
 	//Expected return value: Coffee
 	public void testDeleteRecipe1() {
@@ -113,6 +126,26 @@ public class RecipeBookTest extends TestCase {
 	//Expected return value: null
 	public void testEditRecipe2() {
 		assertEquals(null,rb.editRecipe(1,r5) );
+	}
+	//Verify edit recipe with get recipe.
+	//Expected return value: true
+	public void testEditRecipe3() {
+		rb.editRecipe(0,r5);
+		Recipe [] recipeArray;
+		Recipe getRecipe;
+		recipeArray = rb.getRecipes();
+		getRecipe = recipeArray[0];
+		assertEquals(true, getRecipe.equals(r5) );
+	}
+	//Verify add recipe with get recipe.
+	//Expected return value: true
+	public void testAddRecipe5() {
+		rb.addRecipe(r2);
+		Recipe [] recipeArray;
+		Recipe getRecipe;
+		recipeArray = rb.getRecipes();
+		getRecipe = recipeArray[1];
+		assertEquals(true, getRecipe.equals(r2) );
 	}
 
 	protected void tearDown() throws Exception {

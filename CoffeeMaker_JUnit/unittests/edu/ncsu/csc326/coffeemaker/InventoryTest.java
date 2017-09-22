@@ -77,11 +77,10 @@ public class InventoryTest extends TestCase {
 		//fail("Not yet implemented");
 	}
 
-	public void testAddSugar() {
-		//fail("Not yet implemented");
-	}
 
 	*/
+	
+	
 	//Test addSugar with a positive integer
 	public void testAddSugar0()  {
 		try {
@@ -121,29 +120,43 @@ public class InventoryTest extends TestCase {
 	}
 	//Test enoughIngredients when there are is not enough sugar
 	public void testEnoughIngredients4() {
-		inv.setMilk(0);
+		inv.setSugar(0);
 		assertEquals(false, inv.enoughIngredients(r2));
 	}
 	//Test useIngredients when ingredients are available.
 	public void testUseIngredients0() {
 		assertEquals(true, inv.useIngredients(r1));
 	}
-	//Test useIngredients when ingredients are not available.
+	//Test useIngredients when ingredients coffee is not available.
 	public void testUseIngredients1() {
 		inv.setCoffee(0);
-		assertEquals(false, inv.useIngredients(r1));
+		assertEquals(false, inv.useIngredients(r2));
 	}
 	//Test useIngredients consumes correct amount of ingredients.
 	//Inventory starts with 15 units of all ingredients,
 	//r2 should consume all ingredients available.
-	public void testUseIngredients3() {
+	public void testUseIngredients2() {
 		int totalIngredients;
 		inv.useIngredients(r2);
 		totalIngredients = inv.getChocolate()+inv.getCoffee()+inv.getMilk()
 			+ inv.getSugar();
 		assertEquals(0, totalIngredients);
 	}
-
+	//Test useIngredients when ingredients sugar is not available.
+	public void testUseIngredients3() {
+		inv.setSugar(0);
+		assertEquals(false, inv.useIngredients(r2));
+	}
+	//Test useIngredients when ingredients chocolate is not available.
+	public void testUseIngredients4() {
+		inv.setChocolate(0);
+		assertEquals(false, inv.useIngredients(r2));
+	}
+	//Test useIngredients when ingredients milk is not available.
+	public void testUseIngredients5() {
+		inv.setMilk(0);
+		assertEquals(false, inv.useIngredients(r2));
+	}
 	public void testToString() {
 		String sample = "Coffee: 15\n" + 
 				"Milk: 15\n" + 

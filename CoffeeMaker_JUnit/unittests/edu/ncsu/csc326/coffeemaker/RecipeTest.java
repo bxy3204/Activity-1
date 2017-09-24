@@ -8,13 +8,13 @@ public class RecipeTest extends TestCase {
 	private Recipe r2;
 
 	protected void setUp() throws Exception {
-		//Sets up two blank recipes
+		// Sets up two blank recipes
 		r1 = new Recipe();
 		r2 = new Recipe();
 		super.setUp();
 	}
 
-	//Test to get the stored value of chocolate
+	//Test to get the stored value of a recipe's chocolate
 	public void testGetAmtChocolate() {
 		try {
 			r1.setAmtChocolate("1");
@@ -24,6 +24,7 @@ public class RecipeTest extends TestCase {
 
 	//Test to set a valid value of chocolate
 	public void testSetAmtChocolate() {
+		
 		try {
 		r1.setAmtChocolate("1");
 		}catch(RecipeException e){

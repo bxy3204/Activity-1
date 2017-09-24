@@ -14,6 +14,7 @@ public class RecipeTest extends TestCase {
 		super.setUp();
 	}
 
+	//Test to get the stored value of chocolate
 	public void testGetAmtChocolate() {
 		try {
 			r1.setAmtChocolate("1");
@@ -21,6 +22,7 @@ public class RecipeTest extends TestCase {
 		assertEquals(1,r1.getAmtChocolate());
 	}
 
+	//Test to set a valid value of chocolate
 	public void testSetAmtChocolate() {
 		try {
 		r1.setAmtChocolate("1");
@@ -30,6 +32,7 @@ public class RecipeTest extends TestCase {
 		assertEquals(1, r1.getAmtChocolate());
 	}
 	
+	//Test to set an invalid negative value of chocolate
 	public void testNegSetAmtChocolate() {
 		try {
 		r1.setAmtChocolate("-1");
@@ -37,6 +40,7 @@ public class RecipeTest extends TestCase {
 		}catch(RecipeException e) {}
 	}
 	
+	//Test to set an invalid non-number value of chocolate
 	public void testNonNumSetAmtChocolate() {
 		try {
 		r1.setAmtChocolate("a");
@@ -44,6 +48,7 @@ public class RecipeTest extends TestCase {
 		}catch(RecipeException e) {}
 	}
 
+	//Test to get the value of coffee in a recipe
 	public void testGetAmtCoffee() {
 		try {
 			r1.setAmtCoffee("1");
@@ -51,6 +56,7 @@ public class RecipeTest extends TestCase {
 		assertEquals(1,r1.getAmtCoffee());
 	}
 	
+	//Test to set a valid value of coffee
 	public void testSetAmtCoffee() {
 		try {
 			r1.setAmtCoffee("1");
@@ -60,6 +66,7 @@ public class RecipeTest extends TestCase {
 			assertEquals(1, r1.getAmtCoffee());
 	}
 
+	//Test to set an invalid negative value of coffee
 	public void testNegSetAmtCoffee() {
 		try {
 		r1.setAmtCoffee("-1");
@@ -67,6 +74,7 @@ public class RecipeTest extends TestCase {
 		}catch(RecipeException e) {}
 	}
 	
+	//Test to set an invalid non-negative value of coffee
 	public void testNonNumSetAmtCoffee() {
 		try {
 		r1.setAmtCoffee("a");
@@ -74,6 +82,7 @@ public class RecipeTest extends TestCase {
 		}catch(RecipeException e) {}
 	}
 	
+	//Test to get the value of milk
 	public void testGetAmtMilk() {
 		try {
 			r1.setAmtMilk("1");
@@ -81,6 +90,7 @@ public class RecipeTest extends TestCase {
 		assertEquals(1,r1.getAmtMilk());
 	}
 
+	//Test to set a valid value of milk
 	public void testSetAmtMilk() {
 		try {
 			r1.setAmtMilk("1");
@@ -89,7 +99,8 @@ public class RecipeTest extends TestCase {
 			}
 			assertEquals(1, r1.getAmtMilk());
 	}
-
+	
+	//Test to set an invalid negative value of milk
 	public void testNegSetAmtMilk() {
 		try {
 		r1.setAmtMilk("-1");
@@ -97,6 +108,7 @@ public class RecipeTest extends TestCase {
 		}catch(RecipeException e) {}
 	}
 	
+	//Test to set an invalid non-number value of milk
 	public void testNonNumSetAmtMilk() {
 		try {
 		r1.setAmtMilk("a");
@@ -104,13 +116,15 @@ public class RecipeTest extends TestCase {
 		}catch(RecipeException e) {}
 	}
 
+	//Test to get the value of sugar
 	public void testGetAmtSugar() {
 		try {
 			r1.setAmtSugar("1");
 		}catch(RecipeException e){}
 		assertEquals(1,r1.getAmtSugar());
 	}
-
+	
+	//Test to set a valid value of Sugar
 	public void testSetAmtSugar() {
 		try {
 			r1.setAmtSugar("1");
@@ -119,7 +133,8 @@ public class RecipeTest extends TestCase {
 			}
 			assertEquals(1, r1.getAmtSugar());
 	}
-
+	
+	//Test to set an invalid negative value of Sugar
 	public void testNegSetAmtSugar() {
 		try {
 		r1.setAmtSugar("-1");
@@ -127,23 +142,41 @@ public class RecipeTest extends TestCase {
 		}catch(RecipeException e) {}
 	}
 	
+	//Test to set an invalid non-number value of Sugar
 	public void testNonNumSetAmtSugar() {
 		try {
 		r1.setAmtSugar("a");
 		fail("Recipe Exception should be thrown");
 		}catch(RecipeException e) {}
 	}
-
+	
+	//Test to get the name of a recipe
 	public void testGetName() {
 		r1.setName("Coffee1");
 		assertEquals("Coffee1", r1.getName());
 	}
-
+	
+	//Test to set the name of a recipe
 	public void testSetName() {
 		r1.setName("Coffee1");
 		assertEquals("Coffee1",r1.getName());
 	}
+	
+	//Test to change the name of a recipe
+	public void testChangeSetName() {
+		r1.setName("Coffee1");
+		r1.setName("Coffee2");
+		assertEquals("Coffee2",r1.getName());
+	}
+	
+	//Test to set a recipe name null
+	public void testNullSetName() {
+		r1.setName("Coffee1");
+		r1.setName(null);
+		assertEquals("Coffee1",r1.getName());
+	}
 
+	//Test to get the value of the price
 	public void testGetPrice() {
 		try {
 			r1.setPrice("1");
@@ -151,6 +184,7 @@ public class RecipeTest extends TestCase {
 		assertEquals(1,r1.getPrice());
 	}
 
+	//Test to set a valid  value of price
 	public void testSetPrice() {
 		try {
 			r1.setPrice("1");
@@ -160,6 +194,7 @@ public class RecipeTest extends TestCase {
 			assertEquals(1, r1.getPrice());
 	}
 
+	//Test to set an invalid negative value of price
 	public void testNegSetPrice() {
 		try {
 		r1.setPrice("-1");
@@ -167,13 +202,15 @@ public class RecipeTest extends TestCase {
 		}catch(RecipeException e) {}
 	}
 	
+	//Test to set an invalid non-negative value of price
 	public void testNonNumSetPrice() {
 		try {
 		r1.setPrice("a");
 		fail("Recipe Exception should be thrown");
 		}catch(RecipeException e) {}
 	}
-//end
+
+	//Test the string method for a recipe
 	public void testToString() {
 		r1.setName("Coffee1");
 		assertEquals("Coffee1", r1.toString());

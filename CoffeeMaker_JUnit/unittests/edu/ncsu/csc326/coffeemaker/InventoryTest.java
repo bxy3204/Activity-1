@@ -28,7 +28,44 @@ public class InventoryTest extends TestCase {
 		r2.setPrice("50");
 		super.setUp();
 	}
+	
+	//test set/get chocolate
+	public void testSetGetChocolate() {
+		inv.setChocolate(2);
+		assertEquals(2, inv.getChocolate());
+	}
+	
+	//test invalid set/get chocolate
+	public void testInvalidSetGetChocolate() {
+		inv.setChocolate(3);
+		inv.setChocolate(-2);
+		assertEquals(3, inv.getChocolate());
+	}
 
+	//test add chocolate with a positive integer
+	public void testAddChocolate() {
+		inv.setChocolate(0);
+		try {
+			inv.addChocolate("5");
+		}
+		catch(InventoryException e) {
+			fail("InventoryException should not be thrown");
+		}
+		assertEquals(5, inv.getChocolate());
+	}
+	
+	//test add zero chocolate
+	public void testAddZeroChocolate() {
+		inv.setChocolate(0);
+		try {
+			inv.addChocolate("0");
+		}
+		catch(InventoryException e) {
+			fail("InventoryException should not be thrown");
+		}
+		assertEquals(0, inv.getChocolate());
+	}
+	
 	//test adding chocolate with negative integer
 	public void testAddNegChocolate() {
 		inv.setChocolate(0);
@@ -49,16 +86,41 @@ public class InventoryTest extends TestCase {
 		catch(InventoryException e) {}
 	}
 	
-	//test add chocolate with a positive integer
-	public void testAddChocolate() {
-		inv.setChocolate(0);
+	//test set/get coffee
+	public void testSetGetCoffee() {
+		inv.setCoffee(2);
+		assertEquals(2, inv.getCoffee());
+	}
+	
+	//test invalid set/get coffee
+	public void testInvalidSetGetCoffee() {
+		inv.setCoffee(3);
+		inv.setCoffee(-2);
+		assertEquals(3, inv.getCoffee());
+	}
+	
+	//tests adding a valid amount of coffee
+	public void testAddCoffee() {
+		inv.setCoffee(0);
 		try {
-			inv.addChocolate("5");
+			inv.addCoffee("5");
 		}
 		catch(InventoryException e) {
 			fail("InventoryException should not be thrown");
 		}
-		assertEquals(5, inv.getChocolate());
+		assertEquals(5, inv.getCoffee());
+	}
+	
+	//tests adding zero coffee
+	public void testAddZeroCoffee() {
+		inv.setCoffee(0);
+		try {
+			inv.addCoffee("0");
+		}
+		catch(InventoryException e) {
+			fail("InventoryException should not be thrown");
+		}
+		assertEquals(0, inv.getCoffee());
 	}
 
 	//tests adding a negative amount of coffee
@@ -81,18 +143,43 @@ public class InventoryTest extends TestCase {
 		catch(InventoryException e) {}
 	}
 	
-	//tests adding a valid amount of coffee
-	public void testAddCoffee() {
-		inv.setCoffee(0);
+	//test get/set milk
+	public void testGetSetMilk() {
+		inv.setMilk(2);
+		assertEquals(2, inv.getMilk());
+	}
+	
+	//test get/set invalid amount of milk
+	public void testInvalidGetSetMilk() {
+		inv.setMilk(3);
+		inv.setMilk(-2);
+		assertEquals(3, inv.getMilk());
+	}
+
+	//tests adding valid amount of milk
+	public void testAddMilk() {
+		inv.setMilk(0);
 		try {
-			inv.addCoffee("5");
+			inv.addMilk("5");
 		}
 		catch(InventoryException e) {
 			fail("InventoryException should not be thrown");
 		}
-		assertEquals(5, inv.getCoffee());
+		assertEquals(5, inv.getMilk());
 	}
 
+	//test adding zero milk
+	public void testAddZeroMilk() {
+		inv.setMilk(0);
+		try {
+			inv.addMilk("0");
+		}
+		catch(InventoryException e) {
+			fail("InventoryException should not be thrown");
+		}
+		assertEquals(0, inv.getMilk());
+	}
+	
 	//tests adding negative amount of milk
 	public void testAddNegAmtMilk() {
 		inv.setMilk(0);
@@ -113,18 +200,19 @@ public class InventoryTest extends TestCase {
 		catch(InventoryException e) {}
 	}
 	
-	//tests adding valid amount of milk
-	public void testAddMilk() {
-		inv.setMilk(0);
-		try {
-			inv.addMilk("5");
-		}
-		catch(InventoryException e) {
-			fail("InventoryException should not be thrown");
-		}
-		assertEquals(5, inv.getMilk());
+	//test set/get sugar
+	public void testSetGetSugar() {
+		inv.setSugar(2);
+		assertEquals(2, inv.getSugar());
 	}
-
+	
+	//test set/get invalid amount of sugar
+	public void testInvalidSetGetSugar() {
+		inv.setSugar(2);
+		inv.setSugar(-2);
+		assertEquals(2, inv.getSugar());
+	}
+	
 	//Test addSugar with a positive integer
 	public void testAddSugar0()  {
 		try {

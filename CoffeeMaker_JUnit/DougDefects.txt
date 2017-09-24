@@ -1,0 +1,13 @@
+I am inserting my defects here for now as I do not have Word installed on my PC and would likely cause some formatting
+issues. I will add the defects to the normal defect list at a later time
+
+Defect 2: In inventory add sugar only allows negative integer inputs
+
+Test case 1 failure
+
+//ToDo add screen cap of failing on positive and negative input
+
+//ToDo solution in Inventory Line 182, should read:
+		if (amtSugar >= 0) {
+//currently
+		if (amtSugar <= 0) {

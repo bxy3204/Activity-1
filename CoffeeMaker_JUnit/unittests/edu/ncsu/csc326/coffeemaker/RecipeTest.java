@@ -230,7 +230,7 @@ public class RecipeTest extends TestCase {
 		try {
 			Field nameField = r1.getClass().getDeclaredField("name");
 			nameField.setAccessible(true);
-			nameField.set(r1, null);
+			nameField.set(r1, "");
 		}
 		catch(NoSuchFieldException nsfe) {}
 		catch(IllegalAccessException iav) {}
@@ -283,7 +283,7 @@ public class RecipeTest extends TestCase {
 		try {
 			Field nameField = r1.getClass().getDeclaredField("name");
 			nameField.setAccessible(true);
-			nameField.set(r1, null);
+			nameField.set(r1, "");
 		}
 		catch(NoSuchFieldException nsfe) {}
 		catch(IllegalAccessException iav) {}

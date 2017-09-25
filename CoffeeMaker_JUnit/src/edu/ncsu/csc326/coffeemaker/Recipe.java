@@ -155,14 +155,14 @@ public class Recipe {
      * @return String
      */
     public String toString() {
-    	return name;
+    	return name; 
     }
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((name == "") ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -175,8 +175,8 @@ public class Recipe {
 		if (getClass() != obj.getClass())
 			return false;
 		final Recipe other = (Recipe) obj;
-		if (name == null) {
-			if (other.name != null)
+		if (name == "") {
+			if (other.name != "")
 				return false;
 		} else if (!name.equals(other.name))
 			return false;

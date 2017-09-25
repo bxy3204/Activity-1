@@ -373,42 +373,58 @@ public class InventoryTest extends TestCase {
 	
 	//tests emptying coffee
 	public void testUseAllCoffee() {
-		
+		inv.setCoffee(15);
+		inv.useIngredients(coffeeOnlyRecipe);
+		assertEquals(0, inv.getCoffee());
 	}
 	
 	//tests emptying milk
 	public void testUseAllMilk() {
-		
+		inv.setMilk(15);
+		inv.useIngredients(milkOnlyRecipe);
+		assertEquals(0, inv.getMilk());
 	}
 	
 	//tests emptying sugar
 	public void testUseAllSugar() {
-		
+		inv.setSugar(15);
+		inv.useIngredients(sugarOnlyRecipe);
+		assertEquals(0, inv.getSugar());
 	}
 	
 	//tests emptying chocolate
 	public void testUseAllChocolate() {
-		
+		inv.setChocolate(15);
+		inv.useIngredients(chocolateOnlyRecipe);
+		assertEquals(0, inv.getChocolate());
 	}
 	
 	//tests using less coffee than is available
 	public void testUseSomeCoffee() {
-		
+		inv.setCoffee(30);
+		inv.useIngredients(coffeeOnlyRecipe);
+		assertEquals(15, inv.getCoffee());
 	}
 	
 	//tests using less milk than is available
 	public void testUseSomeMilk() {
-		
+		inv.setMilk(30);
+		inv.useIngredients(milkOnlyRecipe);
+		assertEquals(15, inv.getMilk());
 	}
 	
 	//tests using less sugar than is available
 	public void testUseSomeSugar() {
-		
+		inv.setSugar(30);
+		inv.useIngredients(sugarOnlyRecipe);
+		assertEquals(15, inv.getSugar());
 	}
 	
 	//tests using less chocolate than is available
 	public void testUseSomeChocolate() {
-		
+		inv.setChocolate(30);
+		inv.useIngredients(chocolateOnlyRecipe);
+		assertEquals(15, inv.getChocolate());
 	}
 	
 	//Test useIngredients when ingredients coffee is not available.

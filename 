@@ -1,0 +1,49 @@
+[33mcommit f94f60e78accf52c338a8ab9a8f9624fb03a29e3[m
+Author: bxy3204 <byoungman12@gmail.com>
+Date:   Thu Sep 21 20:15:16 2017 -0400
+
+    Added more tests for useIngredients in InventoryTest
+
+[33mcommit 0e06caba46782c95b1fd60d30febe65c3334ec1c[m
+Author: bxy3204 <byoungman12@gmail.com>
+Date:   Thu Sep 21 18:05:41 2017 -0400
+
+    Added 11 tests to InventoryTest. 3 failures, 2 defects found.
+
+[33mcommit cdf134c49defcb624c1cded81042d7028609ac80[m
+Author: bxy3204 <byoungman12@gmail.com>
+Date:   Wed Sep 20 21:27:50 2017 -0400
+
+    Added Defect report and first defect, completed 12 unit tests for RecipeBook
+
+[33mcommit 53957557917cc24b60d7e463f510f108e5083cd8[m
+Author: bxy3204 <byoungman12@gmail.com>
+Date:   Wed Sep 20 20:27:20 2017 -0400
+
+    Added 9 tests to RecipeBook
+
+[33mcommit e742d5b3aeaae046c35c76b7b01a321af0e0dea2[m
+Author: bxy3204 <byoungman12@gmail.com>
+Date:   Wed Sep 20 14:10:15 2017 -0400
+
+    Test commit and Add recipebook test file
+
+[33mcommit 402231c76f685e8f2b6ffe5268ad17b8d951ce9f[m
+Author: dfg9279 <dfg9279@cs.rit.edu>
+Date:   Wed Sep 20 08:23:45 2017 -0700
+
+    Added inventory test stubs
+
+[33mcommit b8fa293d57b6784495f8393141954430713c3ca5[m
+Author: bxy3204 <bxy3204@g.rit.edu>
+Date:   Mon Sep 18 18:14:34 2017 -0400
+
+    CoffeMaker
+    
+    Initial files
+
+[33mcommit a8263b504cffff86b28035f052a7663ae8efbe0e[m
+Author: Devon Bagley <dxb4606@rit.edu>
+Date:   Mon Sep 18 17:53:58 2017 -0400
+
+    first commit

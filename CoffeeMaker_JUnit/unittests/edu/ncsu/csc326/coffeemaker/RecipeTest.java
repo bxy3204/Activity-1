@@ -290,4 +290,5 @@ public class RecipeTest extends TestCase {
 		r2.setName("Test");
 		assertEquals(false, r1.equals(r2));
 	}
+	
 }

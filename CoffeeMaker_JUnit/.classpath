@@ -3,6 +3,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry excluding="edu/ncsu/csc326/coffeemaker/RecipeBook.java" kind="src" path="unittests"/>
+	<classpathentry excluding="edu/ncsu/csc326/coffeemaker/RecipeBook.java|edu/ncsu/csc326/coffeemaker/CoffeeMakerTest.java" kind="src" path="unittests"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

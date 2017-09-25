@@ -1,6 +1,7 @@
 package edu.ncsu.csc326.coffeemaker;
 
 import edu.ncsu.csc326.coffeemaker.exceptions.RecipeException;
+import java.lang.reflect.*;
 import junit.framework.TestCase;
 
 public class RecipeTest extends TestCase {
@@ -255,5 +256,19 @@ public class RecipeTest extends TestCase {
 	public void testEqualsOtherNull() {
 		r1.setName("Test1");
 		assertEquals(false, r1.equals(null));
+	}
+	
+	//test this recipe name is null and other is not
+	//reflection is required to set r1 name to null
+	public void testEqualThisNullOtherNot() {
+		try {
+			Field nameField = r1.getClass().getDeclaredField("name");
+			nameField.setAccessible(true);
+			nameField.set(r1, null);
+		}
+		catch(NoSuchFieldException nsfe) {}
+		catch(IllegalAccessException iav) {}
+		r2.setName("Test");
+		assertEquals(false, r1.equals(r2));
 	}
 }

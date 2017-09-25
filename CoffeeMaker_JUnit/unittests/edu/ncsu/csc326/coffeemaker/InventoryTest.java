@@ -299,12 +299,13 @@ public class InventoryTest extends TestCase {
 		assertEquals(true, inv.enoughIngredients(chocolateOnlyRecipe));
 	}
 	
+	//test enoughIngredients when there is just enough chocolate
 	public void testJustEnoughChocolate() {
 		inv.setChocolate(15);
 		assertEquals(true, inv.enoughIngredients(chocolateOnlyRecipe));
 	}
 	
-	//Test enoughIngredients when there are is not enough coffee
+	//Test enoughIngredients when there is not enough coffee
 	public void testEnoughIngredients2() {
 		inv.setCoffee(0);
 		assertEquals(false, inv.enoughIngredients(r2));
@@ -316,6 +317,7 @@ public class InventoryTest extends TestCase {
 		assertEquals(true, inv.enoughIngredients(coffeeOnlyRecipe));
 	}
 	
+	//test enoughIngredients when there is just enough coffee
 	public void testJustEnoughCoffee() {
 		inv.setCoffee(15);
 		assertEquals(true, inv.enoughIngredients(coffeeOnlyRecipe));
@@ -333,6 +335,7 @@ public class InventoryTest extends TestCase {
 		assertEquals(true, inv.enoughIngredients(milkOnlyRecipe));
 	}
 	
+	//test enoughIngredients when there is just enough milk
 	public void testJustEnoughMilk() {
 		inv.setMilk(15);
 		assertEquals(true, inv.enoughIngredients(milkOnlyRecipe));
@@ -350,10 +353,12 @@ public class InventoryTest extends TestCase {
 		assertEquals(true, inv.enoughIngredients(sugarOnlyRecipe));
 	}
 	
+	//test enoughIngredients when there is just enough sugar
 	public void testJustEnoughSugar() {
 		inv.setSugar(15);
 		assertEquals(true, inv.enoughIngredients(sugarOnlyRecipe));
 	}
+	
 	
 	//Test useIngredients when ingredients are available.
 	public void testUseIngredients0() {
@@ -451,6 +456,7 @@ public class InventoryTest extends TestCase {
 		assertEquals(false, inv.useIngredients(r2));
 	}
 	
+	//test Inventory toString method
 	public void testToString() {
 		String sample = "Coffee: 15\n" + 
 				"Milk: 15\n" + 

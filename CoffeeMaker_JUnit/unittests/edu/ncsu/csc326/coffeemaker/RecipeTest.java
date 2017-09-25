@@ -217,6 +217,25 @@ public class RecipeTest extends TestCase {
 		r1.setName("Coffee1");
 		assertEquals("Coffee1", r1.toString());
 	}
+	
+	//Test hashcode
+	public void testHashcode() {
+		r1.setName("test");
+		assertEquals(("test".hashCode() + 31), r1.hashCode());
+	}
+	
+	//test hashcode with null name
+	//reflection required to set name to null
+	public void testNullHashcode() {
+		try {
+			Field nameField = r1.getClass().getDeclaredField("name");
+			nameField.setAccessible(true);
+			nameField.set(r1, null);
+		}
+		catch(NoSuchFieldException nsfe) {}
+		catch(IllegalAccessException iav) {}
+		assertEquals(0, r1.hashCode());
+	}
 
 	//test is equal with same name
 	public void testEqualsObject() {

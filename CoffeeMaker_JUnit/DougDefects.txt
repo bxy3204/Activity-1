@@ -11,3 +11,10 @@ Test case 1 failure
 		if (amtSugar >= 0) {
 //currently
 		if (amtSugar <= 0) {
+		
+Defect 3: In Inventory useIngredients coffee is added to inventory instead of removed
+
+Solution in Inventory Line 220 should read:
+		Inventory.coffee -= r.getAmtCoffee();
+currently:
+		Inventory.coffee += r.getAmtCoffee();

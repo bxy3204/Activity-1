@@ -7,6 +7,11 @@ public class InventoryTest extends TestCase {
 	private Inventory inv;
 	private Recipe r1;
 	private Recipe r2;
+	private Recipe coffeeOnlyRecipe;
+	private Recipe milkOnlyRecipe;
+	private Recipe sugarOnlyRecipe;
+	private Recipe chocolateOnlyRecipe;
+	
 	protected void setUp() throws Exception {
 		inv = new Inventory();
 		//Set up for r1
@@ -26,6 +31,46 @@ public class InventoryTest extends TestCase {
 		r2.setAmtMilk("15");
 		r2.setAmtSugar("15");
 		r2.setPrice("50");
+		super.setUp();
+		
+		//Set up recipe for coffee only
+		coffeeOnlyRecipe = new Recipe();
+		coffeeOnlyRecipe.setName("Coffee");
+		coffeeOnlyRecipe.setAmtChocolate("0");
+		coffeeOnlyRecipe.setAmtCoffee("15");
+		coffeeOnlyRecipe.setAmtMilk("0");
+		coffeeOnlyRecipe.setAmtSugar("0");
+		coffeeOnlyRecipe.setPrice("50");
+		super.setUp();
+		
+		//Set up recipe for milk only
+		milkOnlyRecipe = new Recipe();
+		milkOnlyRecipe.setName("Coffee");
+		milkOnlyRecipe.setAmtChocolate("0");
+		milkOnlyRecipe.setAmtCoffee("0");
+		milkOnlyRecipe.setAmtMilk("15");
+		milkOnlyRecipe.setAmtSugar("0");
+		milkOnlyRecipe.setPrice("50");
+		super.setUp();
+		
+		//set up recipe for sugar only
+		sugarOnlyRecipe = new Recipe();
+		sugarOnlyRecipe.setName("Coffee");
+		sugarOnlyRecipe.setAmtChocolate("0");
+		sugarOnlyRecipe.setAmtCoffee("0");
+		sugarOnlyRecipe.setAmtMilk("0");
+		sugarOnlyRecipe.setAmtSugar("15");
+		sugarOnlyRecipe.setPrice("50");
+		super.setUp();
+		
+		//set up recipe with chocolate only
+		chocolateOnlyRecipe = new Recipe();
+		chocolateOnlyRecipe.setName("Coffee");
+		chocolateOnlyRecipe.setAmtChocolate("15");
+		chocolateOnlyRecipe.setAmtCoffee("0");
+		chocolateOnlyRecipe.setAmtMilk("0");
+		chocolateOnlyRecipe.setAmtSugar("0");
+		chocolateOnlyRecipe.setPrice("50");
 		super.setUp();
 	}
 	
@@ -247,10 +292,16 @@ public class InventoryTest extends TestCase {
 		inv.setChocolate(0);
 		assertEquals(false, inv.enoughIngredients(r2));
 	}
+
+	//test enoughIngredients when there is enough chocolate
+	public void testEnoughChocolate() {
+		inv.setChocolate(30);
+		assertEquals(true, inv.enoughIngredients(chocolateOnlyRecipe));
+	}
 	
-	//Test enoughIngredients when there are enough ingredients
-	public void testEnoughIngredients1() {
-		assertEquals(true, inv.enoughIngredients(r1));
+	public void testJustEnoughChocolate() {
+		inv.setChocolate(15);
+		assertEquals(true, inv.enoughIngredients(chocolateOnlyRecipe));
 	}
 	
 	//Test enoughIngredients when there are is not enough coffee
@@ -259,10 +310,32 @@ public class InventoryTest extends TestCase {
 		assertEquals(false, inv.enoughIngredients(r2));
 	}
 	
+	//test enoughIngredients when there is enough coffee
+	public void testEnoughCoffee() {
+		inv.setCoffee(30);
+		assertEquals(true, inv.enoughIngredients(coffeeOnlyRecipe));
+	}
+	
+	public void testJustEnoughCoffee() {
+		inv.setCoffee(15);
+		assertEquals(true, inv.enoughIngredients(coffeeOnlyRecipe));
+	}
+	
 	//Test enoughIngredients when there are is not enough milk
 	public void testEnoughIngredients3() {
 		inv.setMilk(0);
 		assertEquals(false, inv.enoughIngredients(r2));
+	}
+	
+	//test enoughIngredients when there is enough milk
+	public void testEnoughMilk() {
+		inv.setMilk(30);
+		assertEquals(true, inv.enoughIngredients(milkOnlyRecipe));
+	}
+	
+	public void testJustEnoughMilk() {
+		inv.setMilk(15);
+		assertEquals(true, inv.enoughIngredients(milkOnlyRecipe));
 	}
 	
 	//Test enoughIngredients when there are is not enough sugar
@@ -271,15 +344,20 @@ public class InventoryTest extends TestCase {
 		assertEquals(false, inv.enoughIngredients(r2));
 	}
 	
+	//test enoughIngredients when there is enough sugar
+	public void testEnoughSugar() {
+		inv.setSugar(30);
+		assertEquals(true, inv.enoughIngredients(sugarOnlyRecipe));
+	}
+	
+	public void testJustEnoughSugar() {
+		inv.setSugar(15);
+		assertEquals(true, inv.enoughIngredients(sugarOnlyRecipe));
+	}
+	
 	//Test useIngredients when ingredients are available.
 	public void testUseIngredients0() {
 		assertEquals(true, inv.useIngredients(r1));
-	}
-	
-	//Test useIngredients when ingredients coffee is not available.
-	public void testUseIngredients1() {
-		inv.setCoffee(0);
-		assertEquals(false, inv.useIngredients(r2));
 	}
 	
 	//Test useIngredients consumes correct amount of ingredients.
@@ -291,6 +369,52 @@ public class InventoryTest extends TestCase {
 		totalIngredients = inv.getChocolate()+inv.getCoffee()+inv.getMilk()
 			+ inv.getSugar();
 		assertEquals(0, totalIngredients);
+	}
+	
+	//tests emptying coffee
+	public void testUseAllCoffee() {
+		
+	}
+	
+	//tests emptying milk
+	public void testUseAllMilk() {
+		
+	}
+	
+	//tests emptying sugar
+	public void testUseAllSugar() {
+		
+	}
+	
+	//tests emptying chocolate
+	public void testUseAllChocolate() {
+		
+	}
+	
+	//tests using less coffee than is available
+	public void testUseSomeCoffee() {
+		
+	}
+	
+	//tests using less milk than is available
+	public void testUseSomeMilk() {
+		
+	}
+	
+	//tests using less sugar than is available
+	public void testUseSomeSugar() {
+		
+	}
+	
+	//tests using less chocolate than is available
+	public void testUseSomeChocolate() {
+		
+	}
+	
+	//Test useIngredients when ingredients coffee is not available.
+	public void testUseIngredients1() {
+		inv.setCoffee(0);
+		assertEquals(false, inv.useIngredients(r2));
 	}
 	
 	//Test useIngredients when ingredients sugar is not available.

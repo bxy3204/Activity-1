@@ -234,7 +234,7 @@ public class RecipeTest extends TestCase {
 		}
 		catch(NoSuchFieldException nsfe) {}
 		catch(IllegalAccessException iav) {}
-		assertEquals(0, r1.hashCode());
+		assertEquals(31, r1.hashCode());
 	}
 
 	//test is equal with same name
